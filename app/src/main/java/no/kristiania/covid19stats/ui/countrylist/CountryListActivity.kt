@@ -16,6 +16,7 @@ import no.kristiania.covid19stats.data.repository.CountryListRepository
 import no.kristiania.covid19stats.data.utils.NetworkConnectionInterceptor
 import no.kristiania.covid19stats.ui.details.DetailsActivity
 import no.kristiania.covid19stats.ui.utils.Listener
+import okhttp3.logging.HttpLoggingInterceptor
 
 class CountryListActivity : AppCompatActivity(), Listener {
 
@@ -27,7 +28,11 @@ class CountryListActivity : AppCompatActivity(), Listener {
         setContentView(R.layout.activity_countries)
 
         val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-        val api = Covid19StatsApi(networkConnectionInterceptor)
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.apply {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY;
+        }
+        val api = Covid19StatsApi(networkConnectionInterceptor, httpLoggingInterceptor)
         val repository = CountryListRepository(api)
 
         val viewModel by viewModels<CountryListViewModel> { CountryListViewModelFactory(repository) }

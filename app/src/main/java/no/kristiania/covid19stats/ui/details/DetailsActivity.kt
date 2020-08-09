@@ -9,6 +9,7 @@ import no.kristiania.covid19stats.R
 import no.kristiania.covid19stats.data.api.Covid19StatsApi
 import no.kristiania.covid19stats.data.repository.DetailsRepository
 import no.kristiania.covid19stats.data.utils.NetworkConnectionInterceptor
+import okhttp3.logging.HttpLoggingInterceptor
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -20,7 +21,11 @@ class DetailsActivity : AppCompatActivity() {
 
         country = intent.getStringExtra("country")
         val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-        val api = Covid19StatsApi(networkConnectionInterceptor)
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.apply {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY;
+        }
+        val api = Covid19StatsApi(networkConnectionInterceptor, httpLoggingInterceptor)
         val repository = DetailsRepository(api)
 
         val viewModel by viewModels<DetailsViewModel> {

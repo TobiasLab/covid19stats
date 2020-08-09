@@ -23,7 +23,7 @@ class DetailsActivity : AppCompatActivity() {
         val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.apply {
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY;
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.HEADERS;
         }
         val api = Covid19StatsApi(networkConnectionInterceptor, httpLoggingInterceptor)
         val repository = DetailsRepository(api)
@@ -36,8 +36,9 @@ class DetailsActivity : AppCompatActivity() {
         }
         viewModel.details.observe(this, Observer { details ->
 
-            val confirmedCases = details
-            confirmed_number.text = confirmedCases.toString()
+            val info = details!![details.lastIndex]
+
+            confirmed_number.text = info.confirmed.toString()
 
         })
     }

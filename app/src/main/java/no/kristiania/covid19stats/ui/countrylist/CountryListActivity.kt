@@ -30,7 +30,7 @@ class CountryListActivity : AppCompatActivity(), Listener {
         val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.apply {
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY;
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE;
         }
         val api = Covid19StatsApi(networkConnectionInterceptor, httpLoggingInterceptor)
         val repository = CountryListRepository(api)

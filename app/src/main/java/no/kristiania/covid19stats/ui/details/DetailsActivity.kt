@@ -1,5 +1,6 @@
 package no.kristiania.covid19stats.ui.details
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private var country: String? = null
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
@@ -37,8 +39,19 @@ class DetailsActivity : AppCompatActivity() {
         viewModel.details.observe(this, Observer { details ->
 
             val info = details!![details.lastIndex]
+            val newConfirmed = details!![details.lastIndex-1]
 
             confirmed_number.text = info.confirmed.toString()
+            recovered_number.text = info.recovered.toString()
+            deaths_number.text = info.deaths.toString()
+
+            confirmed_new.text = "+" + (info.confirmed - newConfirmed.confirmed).toString()
+            deaths_new.text = "+" + (info.deaths - newConfirmed.deaths).toString()
+
+
+
+
+
 
         })
     }

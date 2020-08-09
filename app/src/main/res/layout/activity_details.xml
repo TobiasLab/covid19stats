@@ -12,6 +12,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="Confirmed"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +23,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="44dp"
         android:text="123456"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,6 +34,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="72dp"
         android:text="+22"
+        android:textSize="20sp"
+        android:textColor="#34eb34"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,8 +44,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="164dp"
+        android:layout_marginRight="156dp"
         android:text="Recovered"
+        android:textSize="20sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,8 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:layout_marginRight="216dp"
+        android:layout_marginRight="188dp"
         android:text="123456"
+        android:textSize="20sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,9 +66,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="295dp"
         android:text="Deaths"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -70,19 +77,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:layout_marginRight="68dp"
+        android:layout_marginLeft="295dp"
         android:text="123456"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/deaths_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="295dp"
         android:layout_marginTop="72dp"
-        android:layout_marginRight="92dp"
         android:text="+10"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="#ff0000"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

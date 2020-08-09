@@ -18,14 +18,19 @@ import no.kristiania.covid19stats.ui.details.DetailsActivity
 import no.kristiania.covid19stats.ui.utils.Listener
 import okhttp3.logging.HttpLoggingInterceptor
 
+//Splash screen code taken from https://gist.github.com/liminal/240095c679dc57108b6b9b3782ca0cc5
+
 class CountryListActivity : AppCompatActivity(), Listener {
 
     private lateinit var adapter: CountryListAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_countries)
+
+        progress_wheel.visibility = View.VISIBLE
 
         val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
         val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -49,6 +54,8 @@ class CountryListActivity : AppCompatActivity(), Listener {
         viewModel2.globalList.observe(this, Observer { global ->
 
             global_cases.text = global.totalConfirmed.toString()
+            global_deaths.text = global.totalDeaths.toString()
+            global_recovered.text = global.totalRecovered.toString()
         })
 
     }

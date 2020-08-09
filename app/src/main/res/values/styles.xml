@@ -7,4 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SplashImage">
+        <item name="android:windowBackground">@drawable/coronavirus_image_splash</item>
+    </style>
+
 </resources>

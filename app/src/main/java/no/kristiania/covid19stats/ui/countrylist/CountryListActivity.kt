@@ -44,6 +44,13 @@ class CountryListActivity : AppCompatActivity(), Listener {
                 progress_wheel.visibility = View.INVISIBLE
             }
         })
+
+        val viewModel2 by viewModels<GlobalListViewModel> { GlobalListViewModelFactory(repository) }
+        viewModel2.globalList.observe(this, Observer { global ->
+
+            global_cases.text = global.totalConfirmed.toString()
+        })
+
     }
 
     override fun onListClick(country: String) {
